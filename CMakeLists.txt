@@ -11,7 +11,7 @@ add_executable(ip_filter ip_filter.cpp)
 set_target_properties(ip_filter PROPERTIES
     CXX_STANDART 14
     CXX_STANDART_REQUIRED ON
-#    COMPILE_OPTIONS -std=gnu++14
+    COMPILE_OPTIONS -std=c++14
 #    COMPILE_OPTIONS -Wpedantic -Wall -Wextra -std=gnu++14
 )
 
