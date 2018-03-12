@@ -1,4 +1,6 @@
 language: cpp
+before_script:
+  - sudo apt-get install libboost-all-dev -y
 script:
 - cmake .
 - cmake --build .
