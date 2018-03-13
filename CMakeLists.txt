@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.2.2)
 
 if (NOT "$ENV{TRAVIS_BUILD_NUMBER}" STREQUAL "")
     project(ip_filter VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
@@ -6,14 +6,13 @@ else()
     project(ip_filter VERSION 0.0.1)
 endif()
 
-add_executable(ip_filter ip_filter.cpp)
+find_package(Boost REQUIRED)
 
-set_target_properties(ip_filter PROPERTIES
-    CXX_STANDART 14
-    CXX_STANDART_REQUIRED ON
-    COMPILE_OPTIONS -std=c++14
-#    COMPILE_OPTIONS -Wpedantic -Wall -Wextra -std=gnu++14
-)
+include_directories(${Boost_INCLUDE_DIR})
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(ip_filter ip_filter.cpp)
 
 install(TARGETS ip_filter RUNTIME DESTINATION bin)
 
