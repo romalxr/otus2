@@ -1,5 +1,15 @@
-language: cpp
-compiler: clang
+language: generic
+matrix:
+  include:
+    - os: linux
+      env: COMPILER_NAME=gcc CXX=g++-5 CC=gcc-5
+      addons:
+        apt:
+          packages:
+            - g++-5
+          sources:
+            - llvm-toolchain-precise-3.8
+            - ubuntu-toolchain-r-test
 before_script:
   - sudo apt-get install libboost-all-dev -y
 script:
