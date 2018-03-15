@@ -27,6 +27,7 @@
 
 *.cmake
 
+ip_filter
 helloworld_cli
 LICENSE
 main
